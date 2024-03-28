@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css\cadas2.css' %}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Cadastrar.css">
+    <link rel="shortcut icon" href="{% static '' %}" type="image/x-icon">
+    <title>Cadastrar Reserva</title>
+    <style>
+        .inline {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header>
+            <div class="content">
+                <div class="logo">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'imagens/logo.png' %}" alt="Cupcake">
+                    </a>
+                </div>
+
+                <div class="menu-toggle">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three"></div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2>RESERVE SEU LANCHE</h2>
+            <form action="{% url 'salvar' %}" method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+
+                <label for="turma">Produto a oferecer:</label>
+                <input type="text" id="turma" name="produto_oferecido" placeholder="Digite seu produto">
+                <label for="turma">Preço do Produto:</label>
+                <input type="text" id="turma" name="preçodoproduto" placeholder="Digite o valor do produto">
+                <label for="foto">Envie uma foto do produto:</label>
+                <input type="file" id="foto" name="foto" accept="image/*">
+
+                <button type="submit">Cadastrar</button>
+
+            </form>
+            <a href="{% url 'sair' %}"> <button type="submit">Sair</button></a>
+        </section>
+
+        {% comment %} <div id="imagem-animada">
+            <img src="{% static 'imagens/Logo-IFPI-Horizontal.png' %}" alt="Logo-IFPI-Horizontal">
+        </div> {% endcomment %}
+
+        <footer>
+            <p>&copy; 2023 SaborReservas. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

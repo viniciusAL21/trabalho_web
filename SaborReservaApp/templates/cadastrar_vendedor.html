@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css\cadas.css' %}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Cadastrar.css">
+    <link rel="shortcut icon" href="{% static '' %}" type="image/x-icon">
+    <title>Cadastrar Vendedor</title>
+    <style>
+        .inline {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header>
+            <div class="content">
+                <div class="logo">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'imagens/logo.png' %}" alt="Cupcake">
+                    </a>
+                </div>
+
+                <div class="menu-toggle">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three"></div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2>CADASTRE-SE</h2>
+            <form action="{% url 'slv_vendedor' %}" method="POST" enctype="multipart/form-data">
+
+                 {% csrf_token %}
+
+                <label for="nome">Nome do Vendedor:</label>
+                <input type="text" id="nome" name="nome_vendedor" placeholder="Digite seu nome">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Digite seu email">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+                <label for="mensagem">Contatos para gerar o link:</label>
+                <input type="text" id="mensagem" name="contato" placeholder="Digite seu contato" inputmode="numeric">
+
+                <button type="submit">Cadastrar</button>
+
+            </form>
+        </section>
+
+        <div id="imagem-animada">
+            <img src="" alt="">
+        </div>
+
+        <footer>
+            <p>&copy; 2023 SaborReservas. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

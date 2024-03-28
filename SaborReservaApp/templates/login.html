@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css\login.css' %}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Cadastrar.css">
+    <link rel="shortcut icon" href="{% static '' %}" type="image/x-icon">
+    <title>LOGIN</title>
+    <style>
+        .inline {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header>
+            <div class="content">
+                <div class="logo">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'imagens/logo.png' %}" alt="Cupcake">
+                    </a>
+                </div>
+
+                <div class="menu-toggle">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three"></div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2>LOGIN</h2>
+            <form action="{% url 'login' %}" method="post">{% csrf_token %}
+
+                 {% csrf_token %}
+
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="username" placeholder="Digite seu nome">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+
+                <button type="submit">Login</button>
+                <h3>Não possui cadastro?</h3>
+                <a href="{% url 'cadastrar_vendedor' %}">Cadastre-se Aqui</a>
+
+            </form>
+        </section>
+
+        {% comment %} <div id="imagem-animada">
+            <img src="{% static 'imagens/Logo-IFPI-Horizontal.png' %}" alt="Logo-IFPI-Horizontal">
+        </div> {% endcomment %}
+
+        <footer>
+            <p>&copy; 2023 SaborReservas. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
